@@ -5,13 +5,12 @@ from typing import List
 from schemas import ItemCreate, ItemOut, ItemUpdate
 from database import SessionLocal, engine, Base
 from crud import create_item, get_item, get_items, update_item, delete_item
-# from . import models, schemas, crud
-# from .database import SessionLocal, engine, Base
+
 
 # Create DB tables
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="FastAPI + SQLite CRUD Example")
+app = FastAPI(title="Clinic Management System")
 
 
 # Dependency: get DB session
