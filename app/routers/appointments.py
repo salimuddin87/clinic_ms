@@ -1,10 +1,10 @@
 # app/routers/appointments.py
 from fastapi import APIRouter, Depends, HTTPException, Query, BackgroundTasks
 from sqlalchemy.orm import Session
-from ..database import get_db
-from ..services.appointment_service import AppointmentService
-from ..schemas import AppointmentCreate, AppointmentOut
-from ..auth import require_roles
+from app.database import get_db
+from app.services.appointment_service import AppointmentService
+from app.schemas import AppointmentCreate, AppointmentOut
+from app.auth import require_roles
 from typing import List
 from datetime import datetime
 

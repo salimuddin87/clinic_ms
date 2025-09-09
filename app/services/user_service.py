@@ -1,8 +1,8 @@
 # app/services/user_service.py
-from .base_service import BaseService
-from ..models import User
-from ..schemas import UserCreate
-from ..auth import get_password_hash, verify_password
+from app.services.base_service import BaseService
+from app.models import User
+from app.schemas import UserCreate
+from app.auth import get_password_hash, verify_password
 from typing import Optional
 
 

@@ -68,20 +68,31 @@ pytest -q
 ```bash
 # create a user (doctor)
 curl -X POST "http://127.0.0.1:8000/users/create" -H "Content-Type: application/json" \
- -d '{"username":"dr_joe","full_name":"Dr Joe","role":"doctor","password":"secret"}'
+ -d '{"username":"Naaz","full_name":"Dr Naaz","role":"doctor","password":"Naaz"}'
+# Output:
+{"id":2,"username":"Naaz","role":"doctor"}
 ```
 
 ```bash
 # get the access_token from response
-curl -X POST "http://127.0.0.1:8000/users/token" -d "username=dr_joe&password=secret"
+curl -X POST "http://127.0.0.1:8000/users/token" -d "username=Naaz&password=Naaz"
+# Output:
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJOYWF6Iiwicm9sZSI6ImRvY3RvciIsImV4cCI6MTc1NzUxNTY5OX0.9e6Bu95KSX3nnxsrmDCLaoyl4bNIFxNWhMzHDM8vzaM","token_type":"bearer"}
 ```
 
 ```bash
 # use the access_token to create a patient
-TOKEN=<access_token>
+TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJOYWF6Iiwicm9sZSI6ImRvY3RvciIsImV4cCI6MTc1NzUxNTY5OX0.9e6Bu95KSX3nnxsrmDCLaoyl4bNIFxNWhMzHDM8vzaM"
 curl -X POST "http://127.0.0.1:8000/patients" \
  -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
- -d '{"first_name":"Asha","last_name":"K","phone":"999888777"}'
+ -d '{"first_name":"Salim","last_name":"Ansari","phone":"999888777"}'
+```
+
+```bash
+# list patients (pagination supported)
+curl -X 'GET'   'http://localhost:8000/patients?page=1' -H "Authorization: Bearer $TOKEN" -H 'accept: application/json'
+# Output:
+[{"first_name":"Salim","last_name":"Ansari","dob":null,"gender":null,"phone":"999888777","email":null,"address":null,"medical_history":null,"id":1}]
 ```
 
 ```bash

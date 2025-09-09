@@ -1,9 +1,9 @@
 # app/main.py
 from fastapi import FastAPI
-from .database import engine, Base
-from .logger_config import get_logger
-from .routers import users, patients, appointments, medicines, reports
-# from .cache import redis_client
+from app.database import engine, Base
+from app.logger_config import get_logger
+from app.routers import users, patients, appointments, medicines, reports
+# from app.cache import redis_client
 
 logger = get_logger("clinic.main")
 

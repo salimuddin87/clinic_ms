@@ -1,11 +1,11 @@
 # app/routers/patients.py
 from fastapi import APIRouter, Depends, HTTPException, Query, BackgroundTasks
 from sqlalchemy.orm import Session
-from ..database import get_db
-from ..services.patient_service import PatientService
-from ..schemas import PatientCreate, PatientOut
-from ..auth import require_roles, get_current_user
-from ..cache import cache
+from app.database import get_db
+from app.services.patient_service import PatientService
+from app.schemas import PatientCreate, PatientOut
+from app.auth import require_roles, get_current_user
+from app.cache import cache
 from typing import List
 import json
 

@@ -2,11 +2,11 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-from ..database import get_db
-from ..services.user_service import UserService
-from ..schemas import UserCreate, Token
-from ..auth import create_access_token, get_db as auth_db_getter
-from ..logger_config import get_logger
+from app.database import get_db
+from app.services.user_service import UserService
+from app.schemas import UserCreate, Token
+from app.auth import create_access_token, get_db as auth_db_getter
+from app.logger_config import get_logger
 
 logger = get_logger("clinic.routes.users")
 router = APIRouter(prefix="/users", tags=["users"])

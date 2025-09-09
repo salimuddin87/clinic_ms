@@ -2,11 +2,11 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from typing import List
-from ..database import get_db
-from ..services.medicine_service import MedicineService
-from ..schemas import MedicineCreate, MedicineOut
-from ..auth import require_roles
-from ..cache import cache
+from app.database import get_db
+from app.services.medicine_service import MedicineService
+from app.schemas import MedicineCreate, MedicineOut
+from app.auth import require_roles
+from app.cache import cache
 import json
 
 router = APIRouter(prefix="/medicines", tags=["medicines"])

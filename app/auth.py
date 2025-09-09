@@ -5,10 +5,10 @@ from passlib.context import CryptContext
 from jose import jwt, JWTError
 from sqlalchemy.orm import Session
 import os
-from .database import SessionLocal
-from . import crud  # service uses crud (we'll use UserService in routers)
-from .logger_config import get_logger
-from .cache import cache
+from app.database import SessionLocal
+from app import crud  # service uses crud (we'll use UserService in routers)
+from app.logger_config import get_logger
+from app.cache import cache
 
 logger = get_logger("clinic.auth")
 

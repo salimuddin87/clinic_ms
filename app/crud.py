@@ -3,9 +3,9 @@ from typing import Optional, List
 from sqlalchemy.orm import Session
 from datetime import datetime
 
-from . import models, schemas
-from .logger_config import get_logger
-from . import auth
+from app import models, schemas
+from app.logger_config import get_logger
+from app import auth
 
 logger = get_logger("clinic.crud")
 

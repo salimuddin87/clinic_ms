@@ -1,6 +1,6 @@
 # app/services/base_service.py
 from sqlalchemy.orm import Session
-from ..logger_config import get_logger
+from app.logger_config import get_logger
 
 logger = get_logger("clinic.base_service")
 

@@ -1,7 +1,7 @@
 # app/services/patient_service.py
-from .base_service import BaseService
-from ..models import Patient
-from ..schemas import PatientCreate
+from app.services.base_service import BaseService
+from app.models import Patient
+from app.schemas import PatientCreate
 from typing import List, Optional
 
 

@@ -3,7 +3,7 @@ import redis
 import os
 import json
 from typing import Optional, Dict
-from .logger_config import get_logger
+from app.logger_config import get_logger
 
 logger = get_logger("clinic.cache")
 

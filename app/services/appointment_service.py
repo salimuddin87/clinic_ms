@@ -1,7 +1,7 @@
 # app/services/appointment_service.py
-from .base_service import BaseService
-from ..models import Appointment, Patient
-from ..schemas import AppointmentCreate
+from app.services.base_service import BaseService
+from app.models import Appointment, Patient
+from app.schemas import AppointmentCreate
 from typing import List, Optional
 from datetime import datetime
 

@@ -1,10 +1,10 @@
 # app/routers/reports.py
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from ..database import get_db
-from ..auth import require_roles
-from ..models import Patient, Appointment, Medicine
-from ..logger_config import get_logger
+from app.database import get_db
+from app.auth import require_roles
+from app.models import Patient, Appointment, Medicine
+from app.logger_config import get_logger
 from datetime import datetime
 
 logger = get_logger("clinic.reports")

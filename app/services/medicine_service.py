@@ -1,7 +1,7 @@
 # app/services/medicine_service.py
-from .base_service import BaseService
-from ..models import Medicine
-from ..schemas import MedicineCreate
+from app.services.base_service import BaseService
+from app.models import Medicine
+from app.schemas import MedicineCreate
 from typing import List, Optional
 
 
