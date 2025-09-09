@@ -10,7 +10,7 @@ logger = get_logger("clinic.main")
 # create DB tables
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Clinic OOP Management System")
+app = FastAPI(title="Clinic Management System")
 
 # include routers
 app.include_router(users.router)

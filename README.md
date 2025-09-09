@@ -1,10 +1,10 @@
 ## Clinic Management System
 I built a complete, object-oriented, multi-file Clinic Management System that uses Python 3.13 + FastAPI + SQLAlchemy (SQLite for demo) + Redis for caching & session storage, and implements OAuth2 (password grant) + JWT + RBAC. The design uses OOP for service layers (each module is a class), keeps caching & session management centralized, supports pagination (top 10), and uses Python logging for info/warn/error.
 
-You can copy the files into a `clinic-oop/` folder and run it. I kept the demo pragmatic (SQLite + synchronous SQLAlchemy) so you can run it locally. Replace DB and secret values for production.
+You can copy the files into a `clinic_ms/` folder and run it. I kept the demo pragmatic (SQLite + synchronous SQLAlchemy) so you can run it locally. Replace DB and secret values for production.
 
 ```ignorelang
-clinic-oop/
+clinic_ms/
 ├─ app/
 │  ├─ __init__.py
 │  ├─ main.py
@@ -51,6 +51,12 @@ docker run -p 6379:6379 -d redis:7
 ```ignorelang
 uvicorn app.main:app --reload --port 8000
 # docs: http://127.0.0.1:8000/docs
+```
+
+### Install in editable mode
+```
+python -m pip install --upgrade pip setuptools wheel
+pip install -e .
 ```
 
 ### Run tests

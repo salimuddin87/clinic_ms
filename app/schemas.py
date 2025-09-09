@@ -1,11 +1,16 @@
 # app/schemas.py
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional
 from datetime import datetime
 
 
+# Reusable base model that enables from_orm() in pydantic v2
+class OrmBaseModel(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+
 # Patients
-class PatientCreate(BaseModel):
+class PatientCreate(OrmBaseModel):
     first_name: str
     last_name: Optional[str] = None
     dob: Optional[str] = None
@@ -18,19 +23,17 @@ class PatientCreate(BaseModel):
 
 class PatientOut(PatientCreate):
     id: int
-
-    class Config:
-        orm_mode = True
+    # model_config inherited from OrmBaseModel -> from_attributes=True
 
 
 # Appointments
-class AppointmentCreate(BaseModel):
+class AppointmentCreate(OrmBaseModel):
     patient_id: int
     scheduled_at: datetime
     reason: Optional[str] = None
 
 
-class AppointmentOut(BaseModel):
+class AppointmentOut(OrmBaseModel):
     id: int
     patient_id: int
     scheduled_at: datetime
@@ -38,12 +41,9 @@ class AppointmentOut(BaseModel):
     status: str
     created_at: datetime
 
-    class Config:
-        orm_mode = True
-
 
 # Medicines
-class MedicineCreate(BaseModel):
+class MedicineCreate(OrmBaseModel):
     name: str
     manufacturer: Optional[str] = None
     quantity: int = 0
@@ -53,23 +53,21 @@ class MedicineCreate(BaseModel):
 
 class MedicineOut(MedicineCreate):
     id: int
-    class Config:
-        orm_mode = True
 
 
 # Users & auth
-class UserCreate(BaseModel):
+class UserCreate(OrmBaseModel):
     username: str
     full_name: Optional[str] = None
     role: Optional[str] = "staff"
     password: str
 
 
-class Token(BaseModel):
+class Token(OrmBaseModel):
     access_token: str
     token_type: str = "bearer"
 
 
-class TokenData(BaseModel):
+class TokenData(OrmBaseModel):
     username: Optional[str] = None
     role: Optional[str] = None
